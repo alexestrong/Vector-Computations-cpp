@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/alexe/CLionProjects/project5/Runner.cpp
+cstdlib
+-
+Vector.cpp
+C:/Users/alexe/CLionProjects/project5/Vector.cpp
+
+C:/Users/alexe/CLionProjects/project5/Vector.cpp
+string
+-
+fstream
+-
+iostream
+-
+cmath
+-
+
+C:/Users/alexe/CLionProjects/project5/proj5.cpp
+iostream
+-
+string
+-
+Runner.cpp
+C:/Users/alexe/CLionProjects/project5/Runner.cpp
+

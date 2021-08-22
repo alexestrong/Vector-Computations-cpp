@@ -1,0 +1,113 @@
+Vector<T>::Vector(const Vector<T> &source) {
+    cout << "Copy constructor called" << endl;
+    Node currentSourceNode = source.m_head.;
+    Node nextSourceNode = nullptr;
+
+    if(source.m_head == nullptr){
+        m_head = nullptr;
+    }else{
+        Node newNode = new Node(nullptr);
+        //m_head->m_value = source.m_head->getValue();
+        //m_head->setNextNode(source.m_head->getNextNode());
+
+        //currentNode = m_head;
+        m_head* = newNode;
+        while(newNode.getNextNode() != nullptr){
+            Insert(source.m_head->getValue())
+        }
+    }
+
+}
+
+
+-----------------------------------------------------------------------------
+template<class T>
+Vector<T>::Vector(const Vector<T> &source) {
+    cout << "Copy constructor called" << endl;
+    Node currentNode = nullptr;
+    Node nextNode = source.m_head->getNextNode();
+    Node sourceTracker = source.m_head->getNextNode();
+
+    if(source.m_head == nullptr){
+        m_head = nullptr;
+    }else{
+        m_head = new Node(nullptr);
+        m_head->m_value = source.m_head->getValue();
+        m_head->setNextNode(source.m_head->getNextNode());
+
+        currentNode = m_head;
+        nextNode = source.m_head->getNextNode();
+    }
+    while (nextNode != nullptr){
+        Insert(currentNode.getValue());
+        currentNode = currentNode.getNextNode();
+        nextNode = currentNode.getNextNode();
+    }
+
+}
+--------------------------------------------------------------------------------
+template<class T>
+Vector<T> *Vector<T>::operator=(Vector<T> *source) {
+    if (this != *source){
+        Node<T> temp = m_head;
+        while (temp.getNextNode() != nullptr){
+            m_head = m_head->getNextNode();
+            delete temp;
+            temp = m_head;
+        }
+
+        temp = source->m_head;
+        while (temp != nullptr){
+            Insert(temp);
+        }
+    }
+    return nullptr;
+}
+-------------------------------------------------------------------------------------
+template<class T>
+Vector<T>::Vector(const Vector<T> &source) {
+    cout << "Copy constructor called" << endl;
+    Node<T> *currNode = source.m_head;
+    source.m_head->getValue();
+    while(currNode != nullptr){
+        Insert(currNode->getValue());
+        currNode = currNode->getNextNode();
+    }
+}
+
+-------------------------------------
+my sorted insert old
+
+template<class T>
+void Vector<T>::SortedInsert(T data) {
+Node<T> *curr = new Node<T>(data);
+bool breakWhile = false;
+
+//For insertion in beginning
+if(m_head == nullptr){
+    m_head = curr;
+}else if (data < m_head->getValue()){
+    curr->setNextNode(m_head);
+    m_head = curr;
+} else{
+    //For insertion in middle
+    Node<T> *temp = m_head;
+    Node<T> *prevTemp = m_head;
+    while(temp != nullptr && !breakWhile){
+        if (temp->getValue() > data){
+            curr->setNextNode(temp);
+            prevTemp->setNextNode(curr);
+            breakWhile = true;
+        }
+        prevTemp = temp;
+        temp = temp->getNextNode();
+    }
+    //For insertion at end
+    if(temp == nullptr){
+        prevTemp->setNextNode(curr);
+        curr->setNextNode(nullptr);
+        //cout << "LAST ONE" << endl;
+    }
+}
+cout << "INSERTED" << endl;
+}
